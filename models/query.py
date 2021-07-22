@@ -10,6 +10,7 @@ class Query(Validation):
     def completed_task(self):
         """ give the task completed by joiner"""
         data = self.json_to_dataframe()
+        print(data)
         clean_data = data[["joiner_id", "completed"]]
         clean_data['completed'].value_counts()
         clean_data = clean_data[clean_data['completed'] == True]
