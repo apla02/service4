@@ -20,7 +20,7 @@
 
 }
 
-li, h4, h2 {
+li, h4{
     font-family:sans-serif;
     text-align:left;
     color: rgb(234, 229, 229);
@@ -29,3 +29,14 @@ li, h4, h2 {
     margin-bottom: 20%;
 
 }
+
+h2 {
+  font-family:sans-serif;
+  text-align:center;
+  color: rgb(234, 229, 229);
+  margin-left: 10%;
+  margin-right: 20%;
+  margin-bottom: 20%;
+
+}
+
