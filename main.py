@@ -27,7 +27,7 @@ def home(request: Request):
 def top_joiners():
     """endpoint to make a report of a top o joiners by tasks"""
     try:
-        new_object = Query("http://service3-django:8010/task/")
+        new_object = Query("http://localhost:8010/task/")
         df = new_object.top_joiners()
         stream = pd_to_csv(df)
         response = StreamingResponse(
@@ -43,7 +43,7 @@ def top_joiners():
 def task_by_joiner():
     """endpoint to make a report tasks by joiner"""
     try:
-        new_object = Query("http://service3-django:8010/task/")
+        new_object = Query("http://localhost:8010/task/")
         df = new_object.task_by_joiner()
         stream = pd_to_csv(df)
         response = StreamingResponse(
@@ -60,7 +60,7 @@ def task_by_x_joiner(joiner_id: int):
     """endpoint to make a report tasks by joiner,
      receive the joiner id as a parameter"""
     try:
-        new_object = Query("http://service3-django:8010/task/")
+        new_object = Query("http://localhost:8010/task/")
         df = new_object.task_by_X_joiner(joiner_id)
         stream = pd_to_csv(df)
         response = StreamingResponse(
@@ -77,7 +77,7 @@ def task_by_x_joiner(joiner_id: int):
 def days_left_by_joiner():
     """endpoint to make a report of days left of joiners with pending tasks"""
     try:
-        new_object = Query("http://service3-django:8010/task/")
+        new_object = Query("http://localhost:8010/task/")
         df = new_object.days_left_by_joiner()
         print(df)
         stream = pd_to_csv(df)
