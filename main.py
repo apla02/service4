@@ -28,7 +28,7 @@ def top_joiners():
     """endpoint to make a report of a top o joiners by tasks"""
 
     new_object = Query("http://localhost:8010/task/")
-    df = new_object.top_joiners()
+    df = new_object.completed_task()
     print(df)
     stream = pd_to_csv(df)
     response = StreamingResponse(
