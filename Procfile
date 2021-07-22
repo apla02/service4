@@ -1,1 +1,1 @@
-web: uvicorn main:app --host=181.134.194.243:0 --port=${PORT:-8040} 
+web: uvicorn main:app --host=0.0.0.0 --port=${PORT:-8040} 

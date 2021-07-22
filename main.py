@@ -93,4 +93,4 @@ def days_left_by_joiner():
 
 if __name__ == "__main__":
 
-    uvicorn.run(app, host="181.134.194.243:0", port=8040)
+    uvicorn.run(app, host="0.0.0.0", port=8040)
