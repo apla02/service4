@@ -26,18 +26,17 @@ def home(request: Request):
 @app.get("/report/topjoiners", status_code=200)
 def top_joiners():
     """endpoint to make a report of a top o joiners by tasks"""
-    try:
-        new_object = Query("http://localhost:8010/task/")
-        print(new_object)
-        df = new_object.top_joiners()
-        stream = pd_to_csv(df)
-        response = StreamingResponse(
-            iter([stream.getvalue()]), media_type="text/csv")
-        response.headers[
-            "Content-Disposition"] = "attachment; filename=top_joiner.csv"
-        return response
-    except Exception as err:
-        return {'message': 'page request not found'}
+
+    new_object = Query("http://localhost:8010/task/")
+    print(new_object)
+    df = new_object.top_joiners()
+    stream = pd_to_csv(df)
+    response = StreamingResponse(
+        iter([stream.getvalue()]), media_type="text/csv")
+    response.headers[
+        "Content-Disposition"] = "attachment; filename=top_joiner.csv"
+    return response
+
 
 
 @app.get("/report/taskbyjoiner")
