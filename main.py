@@ -22,21 +22,26 @@ def home(request: Request):
     return templates.TemplateResponse(
         'home.html', {'request': request})
 
+@app.get('/hello')
+def hello():
+    """endpoint to display the start website"""
+    return {'message': 'helooo!!!!'}
 
 @app.get("/report/topjoiners", status_code=200)
 def top_joiners():
     """endpoint to make a report of a top o joiners by tasks"""
-
-    new_object = Query("http://localhost:8010/task/")
-    df = new_object.completed_task()
-    print(df)
-    stream = pd_to_csv(df)
-    response = StreamingResponse(
-        iter([stream.getvalue()]), media_type="text/csv")
-    response.headers[
-        "Content-Disposition"] = "attachment; filename=top_joiner.csv"
-    return response
-
+    try:
+        new_object = Query("http://localhost:8010/task/")
+        print(new_object)
+        df = new_object.top_joiners()
+        stream = pd_to_csv(df)
+        response = StreamingResponse(
+            iter([stream.getvalue()]), media_type="text/csv")
+        response.headers[
+            "Content-Disposition"] = "attachment; filename=top_joiner.csv"
+        return response
+    except Exception as err:
+        return {'message': 'page request not found'}
 
 
 @app.get("/report/taskbyjoiner")
