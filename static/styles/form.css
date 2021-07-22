@@ -1,0 +1,40 @@
+
+    
+.container {
+    background-color:rgb(94, 88, 85);
+    border-color: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left:30%;
+    margin-right: 30%;
+    margin-top: 5%;
+    padding-bottom: 70px;
+    padding-top: 50px;
+    border-radius: 2%;
+    
+
+}
+
+li, h3, h4, h5 {
+    font-family:Tahoma, sans-serif;
+    text-align:left;
+    color: rgb(234, 229, 229);
+    margin-left: 10%;
+    margin-right: 20%;
+    margin-bottom: 20%;
+
+}
+
+
+h2 {
+  font-family:Tahoma, sans-serif;
+  text-align:center;
+  color: rgb(234, 229, 229);
+  margin-left: 10%;
+  margin-right: 20%;
+  margin-bottom: 20%;
+
+}
